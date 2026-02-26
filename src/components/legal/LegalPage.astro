@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  lastUpdated?: string;
+}
+
+const { title, description, lastUpdated } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="max-w-3xl mx-auto px-6 py-24">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">{title}</h1>
+    {description && <p class="text-xl text-gray-600 mb-12">{description}</p>}
+    
+    <div class="prose prose-lg text-gray-600">
+      <slot />
+    </div>
+
+    {lastUpdated && (
+      <p class="text-sm text-gray-500 mt-12">
+        Última actualización: {lastUpdated}
+      </p>
+    )}
+  </div>
+</BaseLayout>
