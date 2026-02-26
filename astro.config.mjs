@@ -1,8 +1,9 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+
 export default defineConfig({
-  site: "https://yoursite.com",
+  site: "https://gestoriaag.com",
   experimental: {
     fonts: [
       {
@@ -10,7 +11,7 @@ export default defineConfig({
         name: "Inter",
         cssVariable: "--font-sans",
         weights: [400, 500],
-      }
+      },
     ],
   },
   integrations: [sitemap()],

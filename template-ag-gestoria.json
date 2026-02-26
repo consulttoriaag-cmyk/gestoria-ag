@@ -1,0 +1,228 @@
+{
+  "task": "Transform Syntro Astro template into Gestoría AG landing page",
+  "context": {
+    "company": "Gestoría AG",
+    "industry": "Mexican government document services and administrative processing",
+    "brand_colors": {
+      "primary": "navy blue (#1e3a8a)",
+      "secondary": "gold (#d4af37)",
+      "background": "white (#ffffff)",
+      "text": "near-black (#1f2937)"
+    },
+    "design_reference": "Vercel minimal aesthetic - clean, professional, lots of whitespace"
+  },
+  
+  "instructions": {
+    "code_standards": {
+      "language": "English for all code, variables, functions, comments",
+      "patterns": ["KISS", "DRY"],
+      "style": "Declarative, functional where possible",
+      "naming": "Clear, semantic, self-documenting"
+    },
+    
+    "ui_restrictions": {
+      "forbidden": ["Purple colors", "Dark mode aesthetic", "Gradients", "Heavy shadows", "Glassmorphism"],
+      "required": ["Minimal Vercel-style design", "White background", "Clean typography", "Generous spacing", "Subtle borders"]
+    },
+    
+    "content_strategy": {
+      "tone": "Professional, trustworthy, efficient",
+      "copy": "Clear value proposition - eliminate bureaucratic hassle",
+      "cta": "Contact via WhatsApp +52 777 514 1857"
+    }
+  },
+  
+  "scope": {
+    "keep": [
+      "src/layouts/BaseLayout.astro",
+      "src/components/global/Navigation.astro",
+      "src/components/global/Footer.astro",
+      "src/pages/index.astro (modify)",
+      "astro.config.mjs"
+    ],
+    
+    "modify": {
+      "Navigation.astro": {
+        "brand": "Gestoría AG",
+        "links": ["Servicios", "Contacto"],
+        "remove": ["Sign up", "Log in buttons"],
+        "add": ["WhatsApp CTA button"]
+      },
+      
+      "Hero.astro": {
+        "headline": "Trámites Gubernamentales Sin Complicaciones",
+        "subheadline": "Actas de nacimiento, matrimonio, defunción, SINDO y más. Rápido, confiable, desde tu celular.",
+        "cta_primary": "Contactar por WhatsApp",
+        "cta_secondary": "Ver Servicios",
+        "remove": ["featuresList", "dashboard.png"],
+        "add": ["Clean illustration or photo of documents/official papers"]
+      },
+      
+      "index.astro": {
+        "sections": [
+          "Hero (main value prop)",
+          "Services (4 main services grid)",
+          "HowItWorks (3 simple steps)",
+          "Pricing (transparent pricing table - simple)",
+          "Contact (WhatsApp CTA + location)"
+        ],
+        "remove": ["SectionOne", "SectionTwo", "WhyChooseUs", "Testimonial"]
+      },
+      
+      "Footer.astro": {
+        "company_name": "Gestoría AG",
+        "description": "Especialistas en trámites gubernamentales en Cuernavaca, Morelos",
+        "links": {
+          "servicios": ["Actas", "SINDO", "CURP/RFC", "Apostillas"],
+          "empresa": ["Contacto", "Ubicación"],
+          "legal": ["Términos", "Privacidad"]
+        },
+        "remove": ["Newsletter form", "Developers section", "All other link groups"],
+        "contact": {
+          "phone": "+52 777 514 1857",
+          "address": "62000 Cuernavaca, Morelos",
+          "whatsapp": "https://wa.me/527775141857"
+        }
+      }
+    },
+    
+    "delete": [
+      "src/pages/login.astro",
+      "src/pages/signup.astro",
+      "src/pages/faq.astro",
+      "src/components/landing/SectionOne.astro",
+      "src/components/landing/SectionTwo.astro",
+      "src/components/landing/WhyChooseUs.astro",
+      "src/components/landing/Testimonial.astro"
+    ],
+    
+    "create": [
+      "src/components/landing/Services.astro (4-column grid)",
+      "src/components/landing/HowItWorks.astro (3 steps)",
+      "src/components/landing/SimplePricing.astro (transparent table)",
+      "src/components/landing/Contact.astro (WhatsApp + map/location)",
+      "src/pages/servicios.astro (services detail page)",
+      "src/pages/contacto.astro (contact page)"
+    ]
+  },
+  
+  "design_system": {
+    "typography": {
+      "font": "Inter (already configured)",
+      "scale": {
+        "h1": "text-5xl font-bold tracking-tight",
+        "h2": "text-4xl font-semibold",
+        "h3": "text-2xl font-medium",
+        "body": "text-lg text-gray-600",
+        "small": "text-sm text-gray-500"
+      }
+    },
+    
+    "spacing": {
+      "section": "py-24 px-6",
+      "container": "max-w-6xl mx-auto",
+      "grid_gap": "gap-8"
+    },
+    
+    "colors": {
+      "primary_button": "bg-blue-900 hover:bg-blue-800 text-white",
+      "secondary_button": "border-2 border-blue-900 text-blue-900 hover:bg-blue-50",
+      "accent": "text-amber-600 (for gold highlights)",
+      "border": "border-gray-200",
+      "card_bg": "bg-white border border-gray-200"
+    },
+    
+    "components": {
+      "cards": "White background, subtle gray border, no shadow, clean padding",
+      "buttons": "Rounded-lg px-6 py-3, no heavy shadows",
+      "sections": "Full-width white, generous vertical spacing",
+      "grid": "Grid system for services (4 cols desktop, 2 tablet, 1 mobile)"
+    }
+  },
+  
+  "services_content": {
+    "list": [
+      {
+        "title": "Actas del Registro Civil",
+        "description": "Nacimiento, matrimonio, defunción. Documentos oficiales en tiempo récord.",
+        "icon": "document-text (heroicon or similar)"
+      },
+      {
+        "title": "Consultas SINDO",
+        "description": "Estado de retiros y movimientos de subcuenta IMSS.",
+        "icon": "chart-bar"
+      },
+      {
+        "title": "CURP y RFC",
+        "description": "Obtención, actualización y corrección de identificadores oficiales.",
+        "icon": "identification"
+      },
+      {
+        "title": "Apostillas",
+        "description": "Legalización de documentos para uso internacional.",
+        "icon": "globe-alt"
+      }
+    ]
+  },
+  
+  "how_it_works_steps": [
+    {
+      "step": "1",
+      "title": "Contacta por WhatsApp",
+      "description": "Envíanos tu solicitud con los datos necesarios"
+    },
+    {
+      "step": "2",
+      "title": "Procesamos tu Trámite",
+      "description": "Gestionamos todo ante las autoridades correspondientes"
+    },
+    {
+      "step": "3",
+      "title": "Recibe tus Documentos",
+      "description": "Te enviamos tus documentos oficiales listos"
+    }
+  ],
+  
+  "pricing_structure": {
+    "display": "Simple transparent table",
+    "services": [
+      {"name": "Acta de Nacimiento", "price": "Desde $XXX"},
+      {"name": "Acta de Matrimonio", "price": "Desde $XXX"},
+      {"name": "Acta de Defunción", "price": "Desde $XXX"},
+      {"name": "Consulta SINDO", "price": "Desde $XXX"}
+    ],
+    "note": "Precios sujetos a disponibilidad y tipo de servicio. Consulta por WhatsApp para cotización exacta."
+  },
+  
+  "technical_requirements": {
+    "responsive": "Mobile-first, works perfectly on all devices",
+    "performance": "Optimized images via OptimizedImage.astro",
+    "seo": "Proper meta tags, semantic HTML",
+    "accessibility": "ARIA labels where needed, keyboard navigation",
+    "fonts": "System fonts fallback for fast load"
+  },
+  
+  "astro_config_updates": {
+    "site": "https://gestoriaag.com (or actual domain)",
+    "title": "Gestoría AG - Trámites Gubernamentales en Cuernavaca",
+    "description": "Especialistas en actas del registro civil, SINDO, CURP, RFC y más. Servicio rápido y confiable en Cuernavaca, Morelos."
+  },
+  
+  "delivery_format": {
+    "provide": [
+      "Complete modified BaseLayout.astro",
+      "New Navigation.astro",
+      "New Hero.astro",
+      "New Services.astro component",
+      "New HowItWorks.astro component",
+      "New SimplePricing.astro component",
+      "New Contact.astro component",
+      "Updated index.astro",
+      "New servicios.astro page",
+      "New contacto.astro page",
+      "Updated Footer.astro",
+      "List of files to delete"
+    ],
+    "format": "Ready-to-use .astro files with clean, declarative code"
+  }
+}
